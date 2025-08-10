@@ -324,7 +324,7 @@ export default function AboutPage() {
                         </div>
                         <div className="flex justify-between">
                           <span className="text-gray-600">개발 기간:</span>
-                          <span className="font-medium">2025년 1월</span>
+                          <span className="font-medium">2025년 8월</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-gray-600">프로젝트 타입:</span>
