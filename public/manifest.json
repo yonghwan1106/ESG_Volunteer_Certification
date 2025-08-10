@@ -1,0 +1,16 @@
+{
+  "name": "ESG 연계 자원봉사 인증 플랫폼",
+  "short_name": "ESG Volunteer",
+  "description": "경기도민의 자원봉사 활동을 ESG 관점에서 자동 분류·점수화·인증하는 플랫폼",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#22c55e",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
