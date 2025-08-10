@@ -60,23 +60,29 @@ export default function ESGChart({ activities }: ESGChartProps) {
         {
           label: '환경 (E)',
           data: baseData.map(d => d.E),
-          backgroundColor: 'rgba(34, 197, 94, 0.8)',
+          backgroundColor: 'rgba(34, 197, 94, 0.9)',
           borderColor: 'rgba(34, 197, 94, 1)',
-          borderWidth: 1,
+          borderWidth: 2,
+          borderRadius: 8,
+          borderSkipped: false,
         },
         {
           label: '사회 (S)',
           data: baseData.map(d => d.S),
-          backgroundColor: 'rgba(59, 130, 246, 0.8)',
+          backgroundColor: 'rgba(59, 130, 246, 0.9)',
           borderColor: 'rgba(59, 130, 246, 1)',
-          borderWidth: 1,
+          borderWidth: 2,
+          borderRadius: 8,
+          borderSkipped: false,
         },
         {
           label: '지배구조 (G)',
           data: baseData.map(d => d.G),
-          backgroundColor: 'rgba(139, 92, 246, 0.8)',
+          backgroundColor: 'rgba(139, 92, 246, 0.9)',
           borderColor: 'rgba(139, 92, 246, 1)',
-          borderWidth: 1,
+          borderWidth: 2,
+          borderRadius: 8,
+          borderSkipped: false,
         },
       ],
     };
@@ -84,16 +90,37 @@ export default function ESGChart({ activities }: ESGChartProps) {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'top' as const,
+        labels: {
+          usePointStyle: true,
+          padding: 20,
+          font: {
+            size: 12,
+            weight: '600',
+          },
+        },
       },
       title: {
         display: true,
-        text: '월별 ESG 활동 점수',
+        text: '월별 ESG 활동 점수 현황',
         font: {
-          size: 16,
+          size: 18,
+          weight: 'bold',
         },
+        color: '#374151',
+        padding: 20,
+      },
+      tooltip: {
+        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+        titleColor: '#374151',
+        bodyColor: '#6B7280',
+        borderColor: '#E5E7EB',
+        borderWidth: 1,
+        cornerRadius: 8,
+        displayColors: true,
       },
     },
     scales: {
@@ -101,21 +128,53 @@ export default function ESGChart({ activities }: ESGChartProps) {
         title: {
           display: true,
           text: '월',
+          font: {
+            size: 14,
+            weight: '600',
+          },
+          color: '#6B7280',
+        },
+        grid: {
+          display: false,
+        },
+        ticks: {
+          color: '#9CA3AF',
         },
       },
       y: {
         title: {
           display: true,
           text: '점수',
+          font: {
+            size: 14,
+            weight: '600',
+          },
+          color: '#6B7280',
         },
         beginAtZero: true,
+        grid: {
+          color: 'rgba(156, 163, 175, 0.3)',
+        },
+        ticks: {
+          color: '#9CA3AF',
+        },
       },
+    },
+    interaction: {
+      intersect: false,
+      mode: 'index' as const,
+    },
+    animation: {
+      duration: 2000,
+      easing: 'easeInOutQuart' as const,
     },
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg">
-      <Bar data={generateMonthlyData()} options={options} />
+    <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-gray-100">
+      <div className="h-96">
+        <Bar data={generateMonthlyData()} options={options} />
+      </div>
     </div>
   );
 }

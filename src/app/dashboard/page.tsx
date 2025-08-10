@@ -8,6 +8,8 @@ import demoUsers from '@/data/demoUsers.json';
 import ESGChart from '@/components/ESGChart';
 import ActivityCard from '@/components/ActivityCard';
 import BadgeDisplay from '@/components/BadgeDisplay';
+import GoalTracker from '@/components/advanced/GoalTracker';
+import AchievementSystem from '@/components/advanced/AchievementSystem';
 import { generateAndDownloadCertificate } from '@/utils/certificateGenerator';
 import { ReportGenerator } from '@/utils/reportGenerator';
 
@@ -76,6 +78,14 @@ export default function DashboardPage() {
             </div>
             
             <div className="flex items-center space-x-4">
+              <Link
+                href="/statistics"
+                className="flex items-center space-x-1 text-blue-600 hover:text-blue-800 font-medium"
+              >
+                <span>📊</span>
+                <span className="hidden md:block">통계</span>
+              </Link>
+              
               <div className="flex items-center space-x-2">
                 <span className="text-2xl">{currentUser.avatar}</span>
                 <span className="font-medium text-gray-900">{currentUser.name}</span>
@@ -223,9 +233,15 @@ export default function DashboardPage() {
           </div>
 
           {/* 오른쪽: 배지 */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 space-y-6">
             <BadgeDisplay badges={currentUser.badges} totalScore={currentUser.totalScore} />
+            <GoalTracker user={currentUser} />
           </div>
+        </div>
+
+        {/* 하단: 성취 시스템 */}
+        <div className="mt-8">
+          <AchievementSystem user={currentUser} />
         </div>
       </div>
     </div>
