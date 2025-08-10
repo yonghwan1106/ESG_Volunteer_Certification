@@ -6,7 +6,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  trailingSlash: true,
+  trailingSlash: false,
   images: {
     unoptimized: true
   }
