@@ -1,0 +1,16 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "env": {
+    "DEMO_USERS_JSON_PATH": "/data/demoUsers.json",
+    "ESG_WEIGHTS_CONFIG": "{\"E\":1.2,\"S\":1.0,\"G\":0.8}"
+  },
+  "functions": {
+    "src/app/**/*.tsx": {
+      "runtime": "nodejs18.x"
+    }
+  }
+}

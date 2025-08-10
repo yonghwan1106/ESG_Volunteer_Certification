@@ -1,0 +1,29 @@
+{
+  "weights": {
+    "E": 1.2,
+    "S": 1.0,
+    "G": 0.8
+  },
+  "badgeLevels": {
+    "1": { "threshold": 30, "name": "초급", "color": "#bronze" },
+    "2": { "threshold": 70, "name": "중급", "color": "#silver" },
+    "3": { "threshold": 120, "name": "고급", "color": "#gold" }
+  },
+  "activityTypes": {
+    "E": {
+      "name": "환경 (Environmental)",
+      "color": "#22c55e",
+      "examples": ["해변 정화", "나무 심기", "재활용 캠페인", "환경감시"]
+    },
+    "S": {
+      "name": "사회 (Social)", 
+      "color": "#3b82f6",
+      "examples": ["독거노인 봉사", "아동 돌봄", "노숙인 급식", "장애인 지원"]
+    },
+    "G": {
+      "name": "지배구조 (Governance)",
+      "color": "#8b5cf6", 
+      "examples": ["시민감시단", "공청회 참여", "투명성 캠페인", "시민교육"]
+    }
+  }
+}
